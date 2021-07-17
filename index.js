@@ -168,12 +168,12 @@ Adding an Employee to the Team
 
         ])
         .then(teamData => {
-            let { name, id, email, role, github, school, confirmAddEmployee } = employeeData;
+            let { name, id, email, role, github, school } = employeeData;
             if (role === 'Engineer') {
                 employee = new Engineer(name, id, email, github)
             }
             else if (role === 'Intern') {
-                employee = new Intern(name, id, email, github)
+                employee = new Intern(name, id, email, school)
             }
 
             employeeData.employee.push(teamData);
@@ -186,9 +186,6 @@ Adding an Employee to the Team
 };
 
 createTeam()
-.then((managerData) => {
-    return generateHtml(managerData);
-})
     .then(promptEmployee)
     .then((employeeData) => {
         console.log(employeeData)
