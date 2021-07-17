@@ -74,7 +74,7 @@ const createTeam = () => {
 const promptEmployee = (employeeData) => {
     console.log(`
 ==============================
-Adding a Employee to the Team
+Adding an Employee to the Team
 ==============================
 `);
     // If there's no 'employees' array property, create one

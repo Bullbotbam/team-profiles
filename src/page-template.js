@@ -11,12 +11,12 @@ const generateManger = (manager) => {
     <div class="card">
     <div class="card-header bg-primary">
       <h3 class="manger">Manager</h3>
-      <p class="name">${name}</p>
+      <p class="name">${manager.name}</p>
     </div>
     </div>
     </div>
     <div class="card-bidy">
-      <p class="idNumber">${id}</p>
+      <p class="idNumber">${manager.id}</p>
       <p class="email">  <a href="mailto:${manager.email}"></a></p>
       <p class="officeNumber">${manager.officeNumber}</p>
     </div>
@@ -33,14 +33,14 @@ const generateEngineer = (engineer) => {
     <div class="card">
     <div class="card-header bg-primary">
       <h3 class="engineer">Engineer</h3>
-      <p class="name">${name}</p>
+      <p class="name">${engineer.name}</p>
     </div>
     </div>
     </div>
     <div class="card-bidy">
-      <p class="idNumber">${id}</p>
-      <p class="email">  <a href="mailto:${email}"></a></p>
-      <p class="officeNumber">${github}</p>
+      <p class="idNumber">${engineer.id}</p>
+      <p class="email">  <a href="mailto:${engineer.email}"></a></p>
+      <p class="officeNumber">${engineer.github}</p>
     </div>
   `;
 };
@@ -55,14 +55,14 @@ const generateIntern = (intern) => {
     <div class="card">
     <div class="card-header bg-primary">
       <h3 class="intern">Intern</h3>
-      <p class="name">${name}</p>
+      <p class="name">${intern.name}</p>
     </div>
     </div>
     </div>
     <div class="card-bidy">
-      <p class="idNumber">${id}</p>
-      <p class="email">  <a href="mailto:${email}"></a></p>
-      <p class="officeNumber">${school}</p>
+      <p class="idNumber">${intern.id}</p>
+      <p class="email">  <a href="mailto:${intern.email}"></a></p>
+      <p class="officeNumber">${intern.school}</p>
     </div>
   `;
 };
@@ -72,9 +72,9 @@ const generateIntern = (intern) => {
 
 
 // create the information to be sent to the page
-const generateHtml = (employeeCard) => {
+const generateHtml = (employee) => {
   // destructure page data by section
-  // const { employees, manager, engineer, intern } = employee;
+  const { name, id, email, officeNumber, github, school } = employee;
 
   return `
 <!DOCTYPE html>
@@ -97,19 +97,22 @@ const generateHtml = (employeeCard) => {
      
     </div>
   </header>
-  <div class="col-4 w-25">
-    <div class="card ">
-    <div class="card-header">1. 
-    ${employeeCard}
-    </div>
-   </div>
-    </div>
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">${employee.name}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${employee.role}</h6>
+    <p class="card-text">ID: ${employee.id}</p>
+    <p class="card-text">Email:${employee.email}</p>
+    <p class="card-text"></p>
+  
+  </div>
+</div>
   <footer class="container text-center py-3">
     <h6 class="text-dark">&copy;2021 by dBull_ATX</h6>
   </footer>
 </body>
 </html>
-`;
+`;console.log(managerName)
 };
 
 
