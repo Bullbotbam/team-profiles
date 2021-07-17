@@ -42,7 +42,7 @@ None at this time
 
 ## Testing
 
-None at this time
+Yes with Jest
 
 ## Links
 
