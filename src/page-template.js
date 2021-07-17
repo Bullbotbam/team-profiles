@@ -79,10 +79,10 @@ team.filter(({ data }) => data.getRole() === 'manager')
   .map((data) => {generateManger(data) }))
 teamArr.push(
 team.filter(({ data }) => data.getRole() === 'engineer')
-  .map((data) => {generateManger(data) }))
+  .map((data) => {generateEngineer(data) }))
 teamArr.push(
 team.filter(({ data }) => data.getRole() === 'intern')
-  .map((data) => {generateManger(data) }))
+  .map((data) => {generateIntern(data) }))
 
 
 return teamArr.join("")
@@ -135,7 +135,7 @@ return teamArr.join("")
   // </html>
   // `;console.log(managerName)
   // };
-
+};
 // }
 module.exports = team =>{
    // destructure page data by section
@@ -172,4 +172,3 @@ module.exports = team =>{
   `;console.log(managerName)
   };
 
-};
