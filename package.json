@@ -1,0 +1,29 @@
+{
+  "name": "team-profiles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
+  },
+  "scripts": {
+    "format": "prettier",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bullbotbam/team-profiles.git"
+  },
+  "author": "dBull_ATX",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bullbotbam/team-profiles/issues"
+  },
+  "homepage": "https://github.com/Bullbotbam/team-profiles#readme"
+}
