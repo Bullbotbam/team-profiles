@@ -186,9 +186,6 @@ Adding an Employee to the Team
 };
 
 createTeam()
-.then((managerData) => {
-    return generateHtml(managerData);
-})
     .then(promptEmployee)
     .then((employeeData) => {
         console.log(employeeData)
