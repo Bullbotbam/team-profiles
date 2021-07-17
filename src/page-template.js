@@ -137,6 +137,7 @@ return teamArr.join("")
   // };
 
 // }
+};
 module.exports = team =>{
    // destructure page data by section
     // const { name, id, email, officeNumber, github, school } = employee;
@@ -172,4 +173,3 @@ module.exports = team =>{
   `;console.log(managerName)
   };
 
-};
