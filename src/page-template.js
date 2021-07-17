@@ -97,7 +97,7 @@ const generateHtml = (employeeCard) => {
      
     </div>
   </header>
-  <div class="col-4 w-25>
+  <div class="col-4 w-25">
     <div class="card ">
     <div class="card-header">1. 
     ${employeeCard}
