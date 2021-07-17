@@ -1,7 +1,7 @@
 const generateTeam = (team)=> {
 
 
-
+team =[];
   // create the manager card
   const generateManger = (manager) => {
     if (!manager) {
@@ -75,14 +75,14 @@ const generateTeam = (team)=> {
   const teamArr = [];
 // then filter/map each ... array.push.filter.map
 teamArr.push(
-team.filter(({ data }) => data.getRole() === 'manager')
+team.filter(({ data }) => data.getRole() === 'Manager')
   .map((data) => {generateManger(data) }))
 teamArr.push(
-team.filter(({ data }) => data.getRole() === 'engineer')
-  .map((data) => {generateManger(data) }))
+team.filter(({ data }) => data.getRole() === 'Engineer')
+  .map((data) => {generateEngineer(data) }))
 teamArr.push(
-team.filter(({ data }) => data.getRole() === 'intern')
-  .map((data) => {generateManger(data) }))
+team.filter(({ data }) => data.getRole() === 'Intern')
+  .map((data) => {generateIntern(data) }))
 
 
 return teamArr.join("")

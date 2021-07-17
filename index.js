@@ -2,14 +2,14 @@
 const inquirer = require("inquirer");
 const fs = require('fs')
 
-const generateHtml = require("./src/page-template");
+const team = require("./src/page-template");
 const { writeFile, copyFile } = require("./utils/generate-site");
 
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
-const employeeData = [];
+let employeeData = [];
 
 const createTeam = () => {
     return inquirer.prompt([
@@ -78,9 +78,9 @@ Adding an Employee to the Team
 ==============================
 `);
     // If there's no 'employees' array property, create one
-    if (!employeeData.employee) {
-        employeeData.employee = [];
-    }
+    // if (!employeeData.employee) {
+    //     employeeData.employee = [];
+    // }
     return inquirer
         .prompt([
             {
@@ -168,15 +168,20 @@ Adding an Employee to the Team
 
         ])
         .then(teamData => {
-            let { name, id, email, role, github, school, confirmAddEmployee } = employeeData;
+            let { name, id, email, role, officeNumber, github, school } = employeeData;
             if (role === 'Engineer') {
                 employee = new Engineer(name, id, email, github)
             }
             else if (role === 'Intern') {
-                employee = new Intern(name, id, email, github)
+                employee = new Intern(name, id, email, school)
             }
-
-            employeeData.employee.push(teamData);
+            else if (role === 'Manager') {
+                employee = new Manager(name, id, email, officeNumber)
+            }
+console.log(teamData)
+console.log(typeof employeeData)
+            employeeData.push(teamData);
+            
             if (teamData.employeesAdded) {
                 return promptEmployee(employeeData);
             } else {
@@ -186,13 +191,10 @@ Adding an Employee to the Team
 };
 
 createTeam()
-.then((managerData) => {
-    return generateHtml(managerData);
-})
     .then(promptEmployee)
     .then((employeeData) => {
         console.log(employeeData)
-        return generateHtml(employeeData);
+        return team(employeeData);
     })
     .then((pageHTML) => {
         return writeFile(pageHTML);
