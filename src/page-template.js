@@ -44,6 +44,9 @@ const generateEngineer = (engineer) => {
     </div>
   `;
 };
+
+
+
 // create the intern card
 const generateIntern = (intern) => {
   if (!intern) {
@@ -68,7 +71,6 @@ const generateIntern = (intern) => {
 };
 
 
-// let employeeCard = teamArr.join("")
 
 
 // create the information to be sent to the page
@@ -98,9 +100,13 @@ const generateHtml = (employee) => {
     </div>
   </header>
   <div class="card" style="width: 18rem;">
+  <div class="card-header">
+      <h5 class="card-title">${employee.name}</h5>
+  <h6 class="card-subtitle mb-2 text-muted">${employee.role}</h6>
+  
+  </div>
   <div class="card-body">
-    <h5 class="card-title">${employee.name}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">${employee.role}</h6>
+    
     <p class="card-text">ID: ${employee.id}</p>
     <p class="card-text">Email:${employee.email}</p>
     <p class="card-text"></p>
