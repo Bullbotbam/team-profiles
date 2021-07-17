@@ -1,5 +1,4 @@
 [![NPM Version](https://img.shields.io/npm/v/npm.svg?style=flat)]()
-[![Badges & Stuff](https://img.shields.io/badge/shields.io-README-green.svg?style=flat)](http://shields.io/)
 <br />
 
   <h1 align="center"> Team Profile </h1>
