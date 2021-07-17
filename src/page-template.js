@@ -71,11 +71,21 @@ const generateTeam = (team)=> {
       </div>
     `;
   };
-
 // create an array
+  const teamArr = [];
 // then filter/map each ... array.push.filter.map
+teamArr.push(
+team.filter(({ data }) => data.getRole() === 'manager')
+  .map((data) => {generateManger(data) }))
+teamArr.push(
+team.filter(({ data }) => data.getRole() === 'engineer')
+  .map((data) => {generateManger(data) }))
+teamArr.push(
+team.filter(({ data }) => data.getRole() === 'intern')
+  .map((data) => {generateManger(data) }))
 
-// return array.join("")
+
+return teamArr.join("")
 
 
   // create the information to be sent to the page
