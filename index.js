@@ -2,14 +2,14 @@
 const inquirer = require("inquirer");
 const fs = require('fs')
 
-const team = require("./src/page-template");
-const { writeFile, copyFile } = require("./utils/generate-site");
+const generatePage = require("./src/page-template");
+const writeFile = require("./utils/generate-site");
 
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
-let employeeData = [];
+let teamData = [];
 
 const createTeam = () => {
     return inquirer.prompt([
@@ -67,11 +67,17 @@ const createTeam = () => {
         },
 
     ])
+    .then(answers=>{
+        console.log(answers)
+        const manager = new Manager(answers.managerName, answers.id, answers.email, answers.officeNumber)
+        teamData.push(manager);
+        console.log(manager, 'manager data')
+    })
 
 
 };
 
-const promptEmployee = (employeeData) => {
+const promptEmployee = () => {
     console.log(`
 ==============================
 Adding an Employee to the Team
@@ -167,46 +173,46 @@ Adding an Employee to the Team
             },
 
         ])
-        .then(teamData => {
-            let { name, id, email, role, officeNumber, github, school } = employeeData;
-            if (role === 'Engineer') {
-                employee = new Engineer(name, id, email, github)
+        .then(employeeStats => {
+            let { name, id, email, role, github, school, employeesAdded } = employeeStats;
+           let employee;
+            if(employeeStats.school){
+                console.log("Intern")
+                const intern = new Intern(employeeStats.name, employeeStats.id, employeeStats.email, employeeStats.school)                
+            }else if(employeeStats.github){
+                console.log("Engineer")
+                const engineer = new Engineer(employeeStats.name, employeeStats.id, employeeStats.email, employeeStats.github)                
             }
-            else if (role === 'Intern') {
-                employee = new Intern(name, id, email, school)
+            teamData.push(employee);
+            if (employeesAdded){
+                return promptEmployee(teamData);
+            }else {
+                return teamData;
             }
-            else if (role === 'Manager') {
-                employee = new Manager(name, id, email, officeNumber)
-            }
-console.log(teamData)
-console.log(typeof employeeData)
-            employeeData.push(teamData);
-            
-            if (teamData.employeesAdded) {
-                return promptEmployee(employeeData);
-            } else {
-                return employeeData;
-            }
+           
         });
 };
-
+// const writeFile = filecontent => {
+//     fs.writeFile('./dist/team.html', filecontent, err => {
+//         // if there is an error 
+//         if (err) {
+//             console.log(err);
+//             return;
+//         // when the profile has been created 
+//         } else {
+//             console.log("Your file was created")
+//         }
+//     })
+// }; 
 createTeam()
-    .then(promptEmployee)
-    .then((employeeData) => {
-        console.log(employeeData)
-        return team(employeeData);
+    .then (promptEmployee)
+    .then(teamData => {
+        return generatePage(teamData)
     })
     .then((pageHTML) => {
         return writeFile(pageHTML);
         console.log('Working....')
     })
-    .then((writeFileResponse) => {
-        console.log(writeFileResponse);
-        return copyFile();
-    })
-    .then((copyFileResponse) => {
-        console.log(copyFileResponse);
-    })
     .catch((err) => {
-        console.log(err);
-    });
+    console.log(err);
+});

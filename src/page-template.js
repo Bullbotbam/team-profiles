@@ -1,7 +1,9 @@
+
 const generateTeam = (team)=> {
+  team =[];
+  console.log(team, "this is team")
 
 
-team =[];
   // create the manager card
   const generateManger = (manager) => {
     if (!manager) {
@@ -35,7 +37,7 @@ team =[];
       <div class="card">
       <div class="card-header bg-primary">
         <h3 class="engineer">Engineer</h3>
-        <p class="name">${engineer.name}</p>
+        <p class="name">${engineer.engineerName}</p>
       </div>
       </div>
       </div>
@@ -60,7 +62,7 @@ team =[];
       <div class="card">
       <div class="card-header bg-primary">
         <h3 class="intern">Intern</h3>
-        <p class="name">${intern.name}</p>
+        <p class="name">${intern.internName}</p>
       </div>
       </div>
       </div>
@@ -138,7 +140,7 @@ return teamArr.join("")
 
 // }
 };
-module.exports = team =>{
+const generatePage = (teamCards) =>{
    // destructure page data by section
     // const { name, id, email, officeNumber, github, school } = employee;
 
@@ -163,7 +165,9 @@ module.exports = team =>{
       
       </div>
     </header>
-    ${generateTeam(team)}
+    <div>
+    ${teamCards}
+    </div>
   </div>
     <footer class="container text-center py-3">
       <h6 class="text-dark">&copy;2021 by dBull_ATX</h6>
@@ -173,3 +177,4 @@ module.exports = team =>{
   `;console.log(managerName)
   };
 
+  module.exports = generatePage;
