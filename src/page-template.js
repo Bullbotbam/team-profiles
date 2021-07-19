@@ -1,76 +1,3 @@
-<<<<<<< HEAD
-  // create the manager card
-  const generateManger = (manager) => {
-    if (!manager) {
-      return "";
-    }
-
-    return `
-      <div class="col-4 my-3">
-      <div class="card">
-      <div class="card-header bg-primary">
-        <h3 class="manger">Manager</h3>
-        <p class="name">${manager.name}</p>
-      </div>
-      </div>
-      </div>
-      <div class="card-bidy">
-        <p class="idNumber">${manager.id}</p>
-        <p class="email">  <a href="mailto:${manager.email}"></a></p>
-        <p class="officeNumber">${manager.officeNumber}</p>
-      </div>
-    `;
-  };
-  // create the engineer card
-  const generateEngineer = (engineer) => {
-    if (!engineer) {
-      return "";
-    }
-
-    return `
-      <div class="col-4 my-3">
-      <div class="card">
-      <div class="card-header bg-primary">
-        <h3 class="engineer">Engineer</h3>
-        <p class="name">${engineer.name}</p>
-      </div>
-      </div>
-      </div>
-      <div class="card-bidy">
-        <p class="idNumber">${engineer.id}</p>
-        <p class="email">  <a href="mailto:${engineer.email}"></a></p>
-        <p class="officeNumber">${engineer.github}</p>
-      </div>
-    `;
-  };
-  // create the intern card
-  const generateIntern = (intern) => {
-    if (!intern) {
-      return "";
-    }
-
-    return `
-      <div class="col-4 my-3">
-      <div class="card">
-      <div class="card-header bg-primary">
-        <h3 class="intern">Intern</h3>
-        <p class="name">${intern.name}</p>
-      </div>
-      </div>
-      </div>
-      <div class="card-bidy">
-        <p class="idNumber">${intern.id}</p>
-        <p class="email">  <a href="mailto:${intern.email}"></a></p>
-        <p class="officeNumber">${intern.school}</p>
-      </div>
-    `;
-  };
-
-// create an array
-// then filter/map each ... array.push.filter.map
-
-// return array.join("")
-=======
 // create Manager card
 const generateManager = function (manager) {
   
@@ -140,23 +67,10 @@ generateHtml = (filecontent) => {
   for (let i = 0; i < filecontent.length; i++) {
       const employee = filecontent[i];
       const role = employee.getRole(); 
->>>>>>> bug-search
 
       if (role === 'Manager') {
           const managerInfo = generateManager(employee);
 
-<<<<<<< HEAD
-  // create the information to be sent to the page
-  const generateHtml = (employee) => {
-    // destructure page data by section
-    const { name, id, email, officeNumber, role, github, school } = employee;
-
-    return `
-  <!DOCTYPE html>
-  <html lang="en">
-
-  <head>
-=======
           cards.push(managerInfo);
       }
 
@@ -188,7 +102,6 @@ return`
 <!DOCTYPE html>
 <html lang="en">
 <head>
->>>>>>> bug-search
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Profile</title>
@@ -203,22 +116,6 @@ return`
             <span class="navbar-brand mb-0 h1 w-100 text-center" id="navbar-text">Team Profile</span>
         </nav>
     </header>
-<<<<<<< HEAD
-    <div class="card" style="width: 18rem;">
-    <div class="card-header">
-        <h5 class="card-title">${employee.managerName}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">${employee.role}</h6>
-    
-    </div>
-    <div class="card-body">
-      
-      <p class="card-text">ID: ${employee.id}</p>
-      <p class="card-text">Email:${employee.email}</p>
-      <p class="card-text"></p>
-    
-    </div>
-  </div>
-=======
     <section>
         <div class="teamProfile">
             <div class="row justify-content-center" id="team-cards">
@@ -227,7 +124,6 @@ return`
             </div>
         </div>
     </section>
->>>>>>> bug-search
     <footer class="container text-center py-3">
     <h6 class="text-dark">&copy;2021 by dBull_ATX</h6>
   </footer>    
@@ -237,11 +133,5 @@ return`
 `;
 }
 
-<<<<<<< HEAD
-
-
-module.exports = generateHtml;
-=======
 // export to index
 module.exports = generateHtml; 
->>>>>>> bug-search

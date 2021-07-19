@@ -170,31 +170,6 @@ Adding an Employee to the Team
             },
 
         ])
-<<<<<<< HEAD
-        .then(teamData => {
-            let { name, id, email, role, github, school } = employeeData;
-            if (role === 'Engineer') {
-                employee = new Engineer(name, id, email, github)
-            }
-            else if (role === 'Intern') {
-                employee = new Intern(name, id, email, school)
-            }
-
-            employeeData.employee.push(teamData);
-            if (teamData.employeesAdded) {
-                return promptEmployee(employeeData);
-            } else {
-                return employeeData;
-            }
-        });
-};
-
-createTeam()
-    .then(promptEmployee)
-    .then((employeeData) => {
-        console.log(employeeData)
-        return generateHtml(employeeData);
-=======
 //         .then(employeeStats => {
 //             let { name, id, email, role, github, school, employeesAdded } = employeeStats;
 //            let employee;
@@ -247,7 +222,6 @@ createTeam()
     promptEmployee)
     .then(teamData => {
         return generateHtml(teamData)
->>>>>>> bug-search
     })
     .then((pageHTML) => {
         console.log('Working....')
