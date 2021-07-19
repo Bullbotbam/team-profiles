@@ -17,9 +17,16 @@
   ## Installation
    To use this app you must install [Node.js](https://nodejs.org/en/).  Once you have Node.js installed, then install Node Package Manager(npm).
 
-```
- npm install -g npm
+first...
 
+```
+npm init -y
+```
+
+then...
+
+```
+npm install jest --save-dev
 ```
 
 ## Purpose
@@ -46,4 +53,4 @@ Yes with Jest
 
 ## Links
 
-[The Team Profile program ~ Video Demo](https://youtu.be/...)
+[The Team Profile program ~ Video Demo](https://youtu.be/OSGtYnhvZoc)

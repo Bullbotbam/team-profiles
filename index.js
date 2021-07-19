@@ -55,7 +55,7 @@ const createTeam = () => {
         {
             type: "input",
             name: "officeNumber",
-            message: "What is the manager's office? (Required)",
+            message: "What is the manager's office number? (Required)",
             validate: (nameInput) => {
                 if (nameInput) {
                     return true;
@@ -170,25 +170,7 @@ Adding an Employee to the Team
             },
 
         ])
-//         .then(employeeStats => {
-//             let { name, id, email, role, github, school, employeesAdded } = employeeStats;
-//            let employee;
-//             if(employeeStats.school){
-//                 console.log("Intern")
-//                 const intern = new Intern(employeeStats.name, employeeStats.id, employeeStats.email, employeeStats.school)                
-//             }else if(employeeStats.github){
-//                 console.log("Engineer")
-//                 const engineer = new Engineer(employeeStats.name, employeeStats.id, employeeStats.email, employeeStats.github)                
-//             }
-//             teamData.push(employee);
-//             if (employeesAdded){
-//                 return promptEmployee(teamData);
-//             }else {
-//                 return teamData;
-//             }
-           
-//         });
-// };
+//        
 .then(employeeData => {
     // data for employee types 
 
