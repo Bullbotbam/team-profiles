@@ -20,7 +20,7 @@ body {
   background-color: var(--secondary);
   margin: 0;
   padding: 0;
-  font-family: 'Public Sans', sans-serif;
+  font-family: "Public Sans", sans-serif;
   font-weight: 300;
   color: var(--dark);
   line-height: 1.5;
@@ -132,7 +132,7 @@ nav a:hover {
 
 .card-header {
   color: var(--primary);
-  background-color: var(--dark);
+  background-color: var(--tertiary);
   padding: 2.5%;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
